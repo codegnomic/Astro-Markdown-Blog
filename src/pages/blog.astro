@@ -1,0 +1,20 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+
+const posts = await Astro.glob('../pages/blog/*.mdx')
+posts.forEach(post => {
+    console.log(post.frontmatter.title)
+})
+---
+
+<SiteLayout>
+    <h2>dis is blog home</h2>
+
+    <ul>
+        {posts.map(post => (
+            <li>
+                <a href={post.url}>{post.frontmatter.title}</a>    
+            </li>
+        ))}
+    </ul>
+</SiteLayout>

@@ -1,0 +1,23 @@
+{
+    "name": "cgblog",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "astro dev",
+        "start": "astro dev",
+        "build": "astro build",
+        "preview": "astro preview"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@astrojs/mdx": "^0.13.0",
+        "@astrojs/svelte": "^1.0.2",
+        "@astrojs/tailwind": "^2.1.3",
+        "astro": "^1.7.1",
+        "svelte": "^3.46.4",
+        "tailwindcss": "^3.0.24"
+    }
+}
