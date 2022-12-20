@@ -1,19 +1,16 @@
 ---
+import Nav from "@components/Nav.svelte"
 
+const { title } = Astro.props
 ---
 
 <html>
     <head>
-
+        <title>{title}</title>
     </head>
-    <body>
-        <nav>
-            <a href="/">Home</a>
-            <a href="/blog">Blog</a>
-            <a href="/projects">Projects</a>
-            <a href="/contact">Contact</a>
-        </nav>
-        <main>
+    <body class="w-screen h-screen flex flex-col dark:text-slate-100">
+        <Nav client:load />
+        <main class="flex-grow flex flex-col dark:bg-slate-800">
             <slot />
         </main>
     </body>

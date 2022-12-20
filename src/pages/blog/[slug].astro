@@ -1,0 +1,33 @@
+---
+import type { Frontmatter } from "@customtypes/types"
+import SiteLayout from "@layouts/SiteLayout.astro"
+
+export async function getStaticPaths() {
+    const posts = await Astro.glob<Frontmatter>("../../posts/*.mdx")
+    return posts.map((post) => ({
+        params: {
+            slug: post.frontmatter.slug,
+        },
+        props: {
+            post,
+        },
+    }))
+}
+
+const { Content, frontmatter } = Astro.props.post
+---
+
+<SiteLayout title={frontmatter.title}>
+    <article class="md flex-grow p-2 bg-slate-100">
+        <Content />
+    </article>
+    <div class="flex justify-center bg-slate-300 dark:bg-slate-900">
+        <button class="p-1" onclick="history.back()">Back</button>
+    </div>
+</SiteLayout>
+
+<style is:global>
+    .md h1 {
+        @apply text-3xl;
+    }
+</style>
