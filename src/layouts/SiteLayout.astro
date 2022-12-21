@@ -1,5 +1,6 @@
 ---
 import Nav from "@components/Nav.svelte"
+import ThemeWrapper from "@components/ThemeWrapper.svelte"
 
 const { title } = Astro.props
 ---
@@ -8,10 +9,14 @@ const { title } = Astro.props
     <head>
         <title>{title}</title>
     </head>
-    <body class="w-screen h-screen flex flex-col dark:text-slate-100">
-        <Nav client:load />
-        <main class="flex-grow flex flex-col dark:bg-slate-800">
-            <slot />
-        </main>
+    <body>
+        <ThemeWrapper client:load>
+            <Nav client:load />
+            <main
+                class="flex-grow flex flex-col dark:text-slate-100 dark:bg-slate-800"
+            >
+                <slot />
+            </main>
+        </ThemeWrapper>
     </body>
 </html>
